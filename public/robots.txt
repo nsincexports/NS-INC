@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tios-education.vercel.app/sitemap.xml
