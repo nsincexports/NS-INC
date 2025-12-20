@@ -288,7 +288,7 @@ export default function Home() {
                 {markets.map((market, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3 bg-gray-50 p-3 md:p-4 rounded-xl hover:bg-green-50 transition-colors duration-300"
+                    className="flex items-center gap-3 bg-green-50 p-3 md:p-4 rounded-xl hover:bg-green-50 transition-colors duration-300"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
@@ -331,7 +331,7 @@ export default function Home() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
+                className="bg-green-50 rounded-xl shadow-md border border-gray-100 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -352,7 +352,7 @@ export default function Home() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="p-4 md:p-6 pt-0"><p className="text-gray-600 text-sm md:text-base">{faq.answer}</p></div>
+                  <div className="px-4 md:px-6 pt-0 pb-4"><p className="text-gray-600 text-sm md:text-base">{faq.answer}</p></div>
                 </motion.div>
               </motion.div>
             ))}

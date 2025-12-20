@@ -26,7 +26,7 @@ const Card = ({ product }) => {
         />
       </div>
 
-      <div className="p-8 flex flex-col grow bg-white relative">
+      <div className="p-6 flex flex-col grow bg-white relative">
         <div className="grow">
           <div className="flex items-center gap-2 mb-3">
             <div className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full flex items-center gap-1.5 border border-orange-100">
@@ -56,7 +56,7 @@ const Card = ({ product }) => {
 
           <motion.div
             whileHover={{ x: 5 }}
-            className="flex items-center gap-2 bg-gray-900 group-hover:bg-orange-600 text-white px-5 py-3 rounded-2xl font-black text-xs transition-all shadow-xl shadow-gray-200 group-hover:shadow-orange-200 uppercase tracking-widest"
+            className="flex items-center gap-2 bg-orange-600 group-hover:bg-green-600 text-white px-5 py-3 rounded-2xl font-black text-xs transition-all shadow-xl shadow-gray-200 group-hover:shadow-orange-200 uppercase tracking-widest"
           >
             Explore
             <ArrowRight size={16} />
