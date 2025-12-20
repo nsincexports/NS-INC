@@ -1,4 +1,5 @@
 import { Target, Eye, CheckCircle, Globe, Package, Shield, Users, Clock, Award, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO.jsx';
 
 export default function About() {
   const sections = [
@@ -47,6 +48,12 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-white via-gray-50 to-white py-12 md:py-16">
+      <SEO
+        title="About NS INC Exports"
+        description=""
+        keywords=""
+        canonical="/"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1.5 rounded-full text-linear md:text-sm font-semibold mb-4 md:mb-6">

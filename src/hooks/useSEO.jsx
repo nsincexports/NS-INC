@@ -38,7 +38,7 @@ export default function useSEO({
       link.rel = "canonical";
       document.head.appendChild(link);
     }
-    link.href = `https://tios-education.vercel.app${canonical}`;
+    link.href = `https://nsinc.co.in${canonical}`;
   }
 
   if (title) {
@@ -68,7 +68,7 @@ export default function useSEO({
       tag.setAttribute("property", "og:image");
       document.head.appendChild(tag);
     }
-    tag.content = `https://tios-education.vercel.app/images${ogImage}`;
+    tag.content = `https://nsinc.co.in/${ogImage}`;
   }
 
   if (ogType) {

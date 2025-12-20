@@ -4,6 +4,8 @@ import products from '../assets/products/products.js';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, X, ChevronLeft, ChevronRight, LayoutGrid, ChevronUp, ChevronDown, Info } from 'lucide-react';
 import { spicesBg, srrMasalaLogo } from '../assets/index.js';
+import SEO from '../components/SEO.jsx';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -13,34 +15,83 @@ const Product = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const categories = ['All', 'Spices', 'FMCG', 'Cutlery and Kitchen Accessories'];
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+
+    const savedCategory = searchParams.get('category');
+    const savedSubcategory = searchParams.get('subcategory');
+    const savedSearch = searchParams.get('search');
+    const savedPage = searchParams.get('page');
+
+    if (savedCategory) setActiveCategory(savedCategory);
+    if (savedSubcategory) setActiveSubcategory(savedSubcategory);
+    if (savedSearch) setSearchQuery(savedSearch);
+    if (savedPage) setCurrentPage(parseInt(savedPage));
+  }, [location.search]);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    if (activeCategory !== 'All') params.set('category', activeCategory);
+    if (activeSubcategory !== 'All') params.set('subcategory', activeSubcategory);
+    if (searchQuery) params.set('search', searchQuery);
+    if (currentPage !== 1) params.set('page', currentPage.toString());
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `/products?${queryString}` : '/products';
+
+    if (location.search !== `?${queryString}`) {
+      navigate(newUrl, { replace: true });
+    }
+  }, [activeCategory, activeSubcategory, searchQuery, currentPage, navigate, location.search]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage, activeCategory, activeSubcategory]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, activeCategory, activeSubcategory]);
-
   const availableSubcategories = useMemo(() => {
+    if (searchQuery) return ['All'];
     const subs = products
       .filter(p => activeCategory === 'All' || p.category === activeCategory)
       .map(p => p.subcategory);
     return ['All', ...new Set(subs)];
-  }, [activeCategory]);
+  }, [activeCategory, searchQuery]);
 
   const filteredProducts = useMemo(() => {
+    if (!searchQuery) {
+      return products.filter((item) => {
+        const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
+        const matchesSubcategory = activeSubcategory === 'All' || item.subcategory === activeSubcategory;
+        return matchesCategory && matchesSubcategory;
+      });
+    }
+
+    const query = searchQuery.toLowerCase();
     return products.filter((item) => {
-      const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.id.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
-      const matchesSubcategory = activeSubcategory === 'All' || item.subcategory === activeSubcategory;
-      return searchQuery.length > 0 ? matchesSearch : (matchesCategory && matchesSubcategory);
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.id.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        item.subcategory.toLowerCase().includes(query) ||
+        item.features?.some(feature => feature.toLowerCase().includes(query)) ||
+        item.description?.toLowerCase().includes(query)
+      );
     });
   }, [searchQuery, activeCategory, activeSubcategory]);
 
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(1);
+    }
+  }, [totalPages, currentPage]);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -62,10 +113,65 @@ const Product = () => {
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
     setActiveSubcategory('All');
+    setSearchQuery('');
+    setCurrentPage(1);
+  };
+
+  const handleSubcategoryChange = (sub) => {
+    setActiveSubcategory(sub);
+    setSearchQuery('');
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    setCurrentPage(1);
+    if (value) {
+      setActiveCategory('All');
+      setActiveSubcategory('All');
+    }
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setCurrentPage(1);
+  };
+
+  const resetAll = () => {
+    setSearchQuery('');
+    setActiveCategory('All');
+    setActiveSubcategory('All');
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (pageNum) => {
+    setCurrentPage(pageNum);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
     <div className="min-h-screen bg-white py-6 md:py-12">
+      <SEO
+        title="NS INC Exports Products"
+        description=""
+        keywords=""
+        canonical="/"
+      />
       <div className="max-w-7xl mx-auto px-4 flex flex-col min-h-[80vh]">
 
         <div className="text-center mb-8">
@@ -86,11 +192,11 @@ const Product = () => {
               type="text"
               placeholder="Search products..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange}
               className="w-full pl-12 pr-12 py-3.5 md:py-4 bg-white rounded-2xl border-2 border-orange-100 focus:border-orange-500 focus:ring-4 focus:ring-orange-50 outline-none transition-all font-bold text-sm md:text-base text-gray-800"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-600 cursor-pointer">
+              <button onClick={clearSearch} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-600 cursor-pointer">
                 <X size={20} />
               </button>
             )}
@@ -117,7 +223,7 @@ const Product = () => {
                 {availableSubcategories.map((sub) => (
                   <button
                     key={sub}
-                    onClick={() => setActiveSubcategory(sub)}
+                    onClick={() => handleSubcategoryChange(sub)}
                     className={`px-4 py-2 rounded-lg text-[10px] md:text-xs font-black transition-all cursor-pointer border-2 ${activeSubcategory === sub ? 'bg-orange-500 border-orange-500 text-white shadow-sm' : 'bg-white border-orange-200 text-orange-400 hover:border-orange-400'}`}
                   >
                     {sub}
@@ -125,6 +231,14 @@ const Product = () => {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {searchQuery && (
+          <div className="mb-6 text-center">
+            <p className="text-orange-600 font-bold text-sm">
+              Search results for: "{searchQuery}" ({filteredProducts.length} products found)
+            </p>
           </div>
         )}
 
@@ -212,7 +326,7 @@ const Product = () => {
               </div>
               <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">No products found</h3>
               <p className="text-gray-400 font-medium text-sm mb-8 px-6">Adjust your filters or try a different search term.</p>
-              <button onClick={() => { setSearchQuery(''); handleCategoryChange('All'); }} className="bg-orange-600 text-white px-8 py-3 rounded-xl font-black shadow-lg hover:bg-orange-700 cursor-pointer uppercase text-[10px] tracking-widest">
+              <button onClick={resetAll} className="bg-orange-600 text-white px-8 py-3 rounded-xl font-black shadow-lg hover:bg-orange-700 cursor-pointer uppercase text-[10px] tracking-widest">
                 Reset All
               </button>
             </div>
@@ -222,13 +336,31 @@ const Product = () => {
         {totalPages > 1 && (
           <div className="mt-12 md:mt-16 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              <button disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)} className="p-2 md:p-3 rounded-xl bg-white border-2 border-orange-100 text-orange-500 hover:bg-orange-50 disabled:opacity-20 transition-all cursor-pointer"><ChevronLeft size={20} /></button>
+              <button
+                disabled={currentPage === 1}
+                onClick={handlePrevPage}
+                className="p-2 md:p-3 rounded-xl bg-white border-2 border-orange-100 text-orange-500 hover:bg-orange-50 disabled:opacity-20 transition-all cursor-pointer"
+              >
+                <ChevronLeft size={20} />
+              </button>
               <div className="flex items-center gap-1 md:gap-2">
                 {getPageNumbers().map((pageNum) => (
-                  <button key={pageNum} onClick={() => setCurrentPage(pageNum)} className={`w-9 h-9 md:w-12 md:h-12 rounded-xl font-black text-xs md:text-sm transition-all cursor-pointer border-2 ${currentPage === pageNum ? 'bg-green-600 border-green-600 text-white shadow-lg' : 'bg-white border-green-100 text-green-600'}`}>{pageNum}</button>
+                  <button
+                    key={pageNum}
+                    onClick={() => handlePageChange(pageNum)}
+                    className={`w-9 h-9 md:w-12 md:h-12 rounded-xl font-black text-xs md:text-sm transition-all cursor-pointer border-2 ${currentPage === pageNum ? 'bg-green-600 border-green-600 text-white shadow-lg' : 'bg-white border-green-100 text-green-600'}`}
+                  >
+                    {pageNum}
+                  </button>
                 ))}
               </div>
-              <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)} className="p-2 md:p-3 rounded-xl bg-white border-2 border-orange-100 text-orange-500 hover:bg-orange-50 disabled:opacity-20 transition-all cursor-pointer"><ChevronRight size={20} /></button>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={handleNextPage}
+                className="p-2 md:p-3 rounded-xl bg-white border-2 border-orange-100 text-orange-500 hover:bg-orange-50 disabled:opacity-20 transition-all cursor-pointer"
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
           </div>
         )}

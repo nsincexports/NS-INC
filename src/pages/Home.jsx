@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Globe, Package, Shield, Truck, Award, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
 import { banner } from '../assets/index.js';
 import products from '../assets/products/products.js';
+import SEO from '../components/SEO.jsx';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -109,8 +110,20 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
+  const handleCardClick = (id) => {
+    navigate(`/product-detail?id=${id}`, {
+      state: { from: location.pathname + location.search }
+    });
+  };
+
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white overflow-hidden">
+      <SEO
+        title="NS INC Exports"
+        description=""
+        keywords=""
+        canonical="/"
+      />
       <motion.section
         className="py-8 md:py-16 lg:py-20"
         initial="hidden"
@@ -182,7 +195,7 @@ export default function Home() {
                   {displayProducts.map((product, index) => (
                     currentSlide === index && (
                       <motion.div
-                        onClick={() => navigate(`/product-detail?id=${product.id}`)}
+                        onClick={() => handleCardClick(product.id)}
                         key={product.id}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}

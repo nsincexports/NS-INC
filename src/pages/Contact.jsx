@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle, Copy, Check } from 'lucide-react';
+import SEO from '../components/SEO.jsx';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -100,6 +101,12 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 via-white to-gray-50 py-12 md:py-16">
+      <SEO
+        title="Contact NS INC Exports"
+        description=""
+        keywords=""
+        canonical="/"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1.5 rounded-full text-sm md:text-base font-semibold mb-4 md:mb-6">

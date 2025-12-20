@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Search, ArrowLeft } from 'lucide-react';
 import products from '../assets/products/products.js';
+import SEO from '../components/SEO.jsx';
 
 const ProductDetail = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const id = searchParams.get('id');
 
   const [product, setProduct] = useState(null);
@@ -28,20 +30,46 @@ const ProductDetail = () => {
     setZoomPos({ x, y });
   };
 
-  if (!product) return <div className="h-screen flex items-center justify-center font-bold text-2xl text-orange-600">Loading...</div>;
+  const handleBack = () => {
+    const referrer = location.state?.from || '/products';
+    navigate(referrer);
+  };
+
+  if (!product) return <div className="h-screen flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center py-20 w-full text-center">
+      <div className="bg-orange-50 w-20 h-20 rounded-full flex items-center justify-center mb-6 text-orange-500">
+        <Search size={40} />
+      </div>
+      <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">No product found</h3>
+      <p className="text-gray-400 font-medium text-sm mb-8 px-6">Check Product Id.</p>
+      <button
+        onClick={handleBack}
+        className="bg-orange-600 text-white px-8 py-3 rounded-xl font-black shadow-lg hover:bg-orange-700 cursor-pointer uppercase text-[10px] tracking-widest"
+      >
+        Go Back
+      </button>
+    </div>
+  </div>;
 
   return (
     <div className="min-h-screen bg-white pb-20">
-      <nav className="max-w-7xl mx-auto px-4 py-6 flex items-center gap-2 text-sm text-gray-500">
+      <SEO
+        title={`NS INC Exports - ${product.title}`}
+        description={product.description}
+        keywords={`${product.category}, ${product.title}, export, bulk order`}
+        canonical={`/product-detail?id=${id}`}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center gap-2 text-sm text-gray-500 my-5">
         <button
-          onClick={() => navigate('/products')}
-          className="hover:text-orange-600 flex items-center gap-1 transition-colors font-medium cursor-pointer"
+          onClick={handleBack}
+          className="flex items-center gap-2 text-orange-600 hover:text-green-600 transition-colors font-medium cursor-pointer group"
         >
-          Products
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+          <span className="font-bold text-sm">Back</span>
         </button>
-        <ChevronRight size={14} />
         <span className="truncate text-gray-900 font-semibold">{product.title}</span>
-      </nav>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">

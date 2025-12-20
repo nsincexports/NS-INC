@@ -1,9 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Tag } from 'lucide-react';
 
 const Card = ({ product }) => {
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const handleCardClick = () => {
+    navigate(`/product-detail?id=${product.id}`, {
+      state: { from: location.pathname + location.search }
+    });
+  };
 
   return (
     <motion.div
@@ -12,7 +20,7 @@ const Card = ({ product }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -8 }}
-      onClick={() => navigate(`/product-detail?id=${product.id}`)}
+      onClick={handleCardClick}
       className="group relative bg-white rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 flex flex-col h-full"
     >
       <div className="relative w-full h-72 bg-gray-50/50 p-8 overflow-hidden flex items-center justify-center">

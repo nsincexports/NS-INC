@@ -2,24 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://tios-education.vercel.app/</loc>
+    <loc>https://nsinc.co.in/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://tios-education.vercel.app/course</loc>
+    <loc>https://nsinc.co.in/about</loc>
   </url>
 
   <url>
-    <loc>https://tios-education.vercel.app/contact</loc>
+    <loc>https://nsinc.co.in/contact</loc>
   </url>
 
   <url>
-    <loc>https://tios-education.vercel.app/about</loc>
+    <loc>https://nsinc.co.in/products</loc>
   </url>
 
   <url>
-    <loc>https://tios-education.vercel.app/faq</loc>
+    <loc>https://nsinc.co.in/product-detail</loc>
   </url>
 
 </urlset>
