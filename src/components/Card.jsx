@@ -13,49 +13,54 @@ const Card = ({ product }) => {
       viewport={{ once: true }}
       whileHover={{ y: -8 }}
       onClick={() => navigate(`/product-detail?id=${product.id}`)}
-      className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 flex flex-col h-full"
+      className="group relative bg-white rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 flex flex-col h-full"
     >
-      <div className="relative w-full h-72 bg-[#fdfdfd] p-6 overflow-hidden">
+      <div className="relative w-full h-72 bg-gray-50/50 p-8 overflow-hidden flex items-center justify-center">
         <motion.img
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           src={product.images[0]}
           alt={product.title}
-          className="w-full h-full object-contain"
+          draggable="false"
+          className="w-full h-full object-contain drop-shadow-xl"
         />
-
-        <div className="absolute top-4 right-4">
-          <div className="px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest shadow-md bg-white/90 backdrop-blur-md text-orange-600 border border-orange-100">
-            <Tag size={12} className="text-orange-500" />
-            {product.subcategory}
-          </div>
-        </div>
       </div>
 
-      <div className="p-6 flex flex-col grow bg-white">
+      <div className="p-8 flex flex-col grow bg-white relative">
         <div className="grow">
-          <h3 className="text-gray-900 font-bold text-xl leading-tight mb-3 group-hover:text-orange-600 transition-colors">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full flex items-center gap-1.5 border border-orange-100">
+              <Tag size={10} className="font-bold" />
+              <span className="text-[10px] font-black uppercase tracking-widest leading-none">
+                {product.subcategory}
+              </span>
+            </div>
+          </div>
+
+          <h3 className="text-gray-900 font-black text-xl leading-tight mb-3 group-hover:text-orange-600 transition-colors italic">
             {product.title}
           </h3>
-          <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed">
+
+          <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed font-medium">
             {product.description}
           </p>
         </div>
 
-        <div className="mt-6 flex items-center justify-between border-t border-gray-50 pt-4">
+        <div className="mt-8 flex items-center justify-between border-t border-gray-50 pt-6">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Model</span>
-            <span className="text-sm font-mono font-medium text-green-700">{product.id}</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-black mb-1">Model ID</span>
+            <span className="text-sm font-mono font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-lg border border-green-100">
+              {product.id}
+            </span>
           </div>
 
-          <motion.button
+          <motion.div
             whileHover={{ x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-100"
+            className="flex items-center gap-2 bg-gray-900 group-hover:bg-orange-600 text-white px-5 py-3 rounded-2xl font-black text-xs transition-all shadow-xl shadow-gray-200 group-hover:shadow-orange-200 uppercase tracking-widest"
           >
             Explore
-            <ArrowRight size={18} />
-          </motion.button>
+            <ArrowRight size={16} />
+          </motion.div>
         </div>
       </div>
 

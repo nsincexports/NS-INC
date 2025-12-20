@@ -584,6 +584,7 @@ const products = [
         category: "Spices",
         subcategory: "Veg",
         title: "Ginger Garlic Paste",
+        highlight: "Contains No Xanthan Gum or Thickening agent - Ginger Garlic Paste",
         description: "Fresh and pungent paste to save prep time and enhance the base of any dish.",
         features: ["Freshly ground", "Strong flavor", "Long shelf life"],
         images: [gingerGarlicPaste]
@@ -857,6 +858,16 @@ const products = [
         description: "The classic roasted coconut-based Goan curry masala.",
         features: ["Roasted coconut flavor", "Authentic Goan", "Complex spice profile"],
         images: [goanXacutiMasala]
+    },
+    {
+        id: "SPICE050",
+        category: "Spices",
+        subcategory: "Non-Veg",
+        title: "Ginger Garlic Paste",
+        highlight: "Contains No Xanthan Gum or Thickening agent - Ginger Garlic Paste",
+        description: "Fresh and pungent paste to save prep time and enhance the base of any dish.",
+        features: ["Freshly ground", "Strong flavor", "Long shelf life"],
+        images: [gingerGarlicPaste]
     }
 ];
 

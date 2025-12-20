@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Globe, Package, Shield, Truck, Award, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
@@ -10,7 +10,10 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState(null);
   const navigate = useNavigate();
 
-  const displayProducts = products.slice(0, 5);
+  const displayProducts = useMemo(() => {
+    const idsToShow = ['NSINC0028', 'NSINC0014', 'NSINC0027', 'NSINC0018', 'SPICE005', 'SPICE017', 'SPICE023', 'SPICE028', 'SPICE019'];
+    return products.filter(p => idsToShow.includes(p.id));
+  }, []);
 
   const features = [
     {
@@ -123,7 +126,7 @@ export default function Home() {
                 14+ Years of Excellence
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Indian Exporter of{' '}
                 <span className="bg-linear-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">FMCG</span>,{' '}
                 <span className="bg-linear-to-r from-green-600 to-green-500 bg-clip-text text-transparent">Food Products</span>{' '}
@@ -149,7 +152,7 @@ export default function Home() {
               <div className="relative max-w-md mx-auto lg:max-w-none">
                 <div className="absolute -inset-4 bg-linear-to-r from-orange-500 to-green-500 rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
                 <div className="relative aspect-square w-full max-w-sm mx-auto lg:max-w-none">
-                  <img src={banner} alt="NS INC Exports Banner" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
+                  <img src={banner} alt="NS INC Exports Banner" draggable="false" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
                 </div>
               </div>
             </motion.div>
@@ -187,7 +190,7 @@ export default function Home() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="absolute inset-0 cursor-pointer"
                       >
-                        <img src={product.images[0]} alt={product.title} className="w-full h-full object-cover" />
+                        <img src={product.images[0]} alt={product.title} draggable="false" className="w-full h-full object-contain" />
                         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                           <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold">{product.title}</h3>
@@ -217,7 +220,7 @@ export default function Home() {
               ].map((text, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start gap-3 bg-gray-50 p-4 md:p-5 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+                  className="flex items-start gap-3 bg-green-50 p-4 md:p-5 rounded-xl hover:bg-green-100 transition-colors duration-300"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}

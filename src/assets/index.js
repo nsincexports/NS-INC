@@ -1,4 +1,6 @@
 import logo from './images/logo.webp';
 import banner from './images/banner.webp';
+import srrMasalaLogo from './images/srrMasalaLogo.webp';
+import spicesBg from './images/spicesBg.webp';
 
-export { logo, banner };
+export { logo, banner, srrMasalaLogo, spicesBg };

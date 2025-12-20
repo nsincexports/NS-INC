@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, CheckCircle2, Leaf, Bone } from 'lucide-react';
+import { ChevronRight, CheckCircle2 } from 'lucide-react';
 import products from '../assets/products/products.js';
 
 const ProductDetail = () => {
@@ -11,6 +11,8 @@ const ProductDetail = () => {
 
   const [product, setProduct] = useState(null);
   const [selectedImg, setSelectedImg] = useState(0);
+  const [zoomPos, setZoomPos] = useState({ x: 0, y: 0 });
+  const [isZooming, setIsZooming] = useState(false);
 
   useEffect(() => {
     const foundProduct = products.find(p => p.id === id);
@@ -19,10 +21,14 @@ const ProductDetail = () => {
     }
   }, [id]);
 
-  if (!product) return <div className="h-screen flex items-center justify-center font-bold text-2xl text-orange-600">Loading...</div>;
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.pageX - left - window.scrollX) / width) * 100;
+    const y = ((e.pageY - top - window.scrollY) / height) * 100;
+    setZoomPos({ x, y });
+  };
 
-  const isSpice = product.category === "Spices";
-  const isNonVeg = isSpice && product.subcategory === "Non-Veg";
+  if (!product) return <div className="h-screen flex items-center justify-center font-bold text-2xl text-orange-600">Loading...</div>;
 
   return (
     <div className="min-h-screen bg-white pb-20">
@@ -48,32 +54,33 @@ const ProductDetail = () => {
                   onClick={() => setSelectedImg(index)}
                   className={`relative cursor-pointer shrink-0 w-16 h-16 md:w-24 md:h-24 border-2 rounded-2xl overflow-hidden transition-all duration-300 ${selectedImg === index ? 'border-orange-500 ring-4 ring-orange-50' : 'border-gray-100 hover:border-gray-300'}`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-contain p-2" />
+                  <img src={img} alt="product" draggable="false" className="w-full h-full object-contain p-2" />
                 </button>
               ))}
             </div>
 
-            <div className="flex-1 bg-gray-50 rounded-[2.5rem] p-8 relative h-100 md:h-137.5 flex items-center justify-center border border-gray-100">
+            <div
+              className="flex-1 bg-gray-50 rounded-[2.5rem] p-8 relative h-100 md:h-137.5 flex items-center justify-center border border-gray-100 overflow-hidden cursor-zoom-in"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsZooming(true)}
+              onMouseLeave={() => setIsZooming(false)}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={selectedImg}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   src={product.images[selectedImg]}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain pointer-events-none"
+                  style={{
+                    transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                    transform: isZooming ? 'scale(2.5)' : 'scale(1)',
+                    transition: isZooming ? 'none' : 'transform 0.3s ease-out'
+                  }}
                 />
               </AnimatePresence>
-
-              <div className="absolute top-6 right-6 flex flex-col gap-2 items-end">
-                {isSpice && (
-                  <div className={`px-4 py-1.5 rounded-xl flex items-center gap-2 text-[10px] font-black uppercase tracking-widest shadow-md ${isNonVeg ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-green-50 text-green-600 border border-green-100'}`}>
-                    {isNonVeg ? <Bone size={14} /> : <Leaf size={14} />}
-                    {isNonVeg ? 'Non-Vegetarian' : '100% Vegetarian'}
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
@@ -88,6 +95,11 @@ const ProductDetail = () => {
               <div className="flex items-center gap-4 mt-6">
                 <span className="text-gray-500 text-sm font-bold tracking-widest uppercase">Model ID: {product.id}</span>
               </div>
+              {product.highlight && (
+                <div className="flex items-center gap-4 mt-4">
+                  <span className="text-orange-500 text-base md:text-lg font-bold tracking-widest uppercase">{product.highlight}</span>
+                </div>
+              )}
             </div>
 
             <div className="py-8 space-y-6">

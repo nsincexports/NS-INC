@@ -18,8 +18,8 @@ export default function Header() {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Product', path: '/products' },
     { name: 'About', path: '/about' },
+    { name: 'Product', path: '/products' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -43,8 +43,9 @@ export default function Header() {
               <NavLink to="/" onClick={closeMenu}>
                 <img
                   src={logo}
-                  alt="Logo"
-                  className={`w-16 h-16 md:w-20 md:h-20 object-contain transition-all duration-300 ${scrolled ? 'w-14 h-14 md:w-18 md:h-18' : 'w-16 h-16 md:w-20 md:h-20'
+                  alt="NS INC Exports"
+                  draggable="false"
+                  className={`w-16 h-16 object-contain transition-all duration-300 ${scrolled ? 'w-14 h-14 md:w-18 md:h-18' : 'w-16 h-16 md:w-20 md:h-20'
                     }`}
                 />
               </NavLink>
