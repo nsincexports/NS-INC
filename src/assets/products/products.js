@@ -142,7 +142,7 @@ import turner3 from './turner3.webp';
 import turner4 from './turner4.webp';
 import turner5 from './turner5.webp';
 import blackSaltPaper from './srr_veg1.webp';
-import channaMasala from './srr_veg2.webp';
+import chanaMasala from './srr_veg2.webp';
 import chatMasala from './srr_veg3.webp';
 import choleMasala from './srr_veg4.webp';
 import garamMasala from './srr_veg5.webp';
@@ -430,10 +430,10 @@ const products = [
         id: "SPICE002",
         category: "Spices",
         subcategory: "Veg",
-        title: "Channa Masala",
+        title: "Chana Masala",
         description: "Classic blend of spices to create delicious and tangy street-style chickpeas.",
         features: ["Traditional recipe", "Pure ingredients", "Tamper-proof packing"],
-        images: [channaMasala]
+        images: [chanaMasala]
     },
     {
         id: "SPICE003",
@@ -547,7 +547,7 @@ const products = [
         id: "SPICE015",
         category: "Spices",
         subcategory: "Veg",
-        title: "Misal Masala",
+        title: "Usal Misal Masala",
         description: "Spicy blend for the popular Maharashtrian breakfast dish Misal Pav.",
         features: ["Authentic Maharashtrian", "Spicy & Zesty", "Rich color"],
         images: [misalMasala]
@@ -584,7 +584,7 @@ const products = [
         category: "Spices",
         subcategory: "Veg",
         title: "Ginger Garlic Paste",
-        highlight: "Contains No Xanthan Gum or Thickening agent - Ginger Garlic Paste",
+        highlight: "Contains No Xanthan Gum or Thickening agent",
         description: "Fresh and pungent paste to save prep time and enhance the base of any dish.",
         features: ["Freshly ground", "Strong flavor", "Long shelf life"],
         images: [gingerGarlicPaste]
@@ -864,7 +864,7 @@ const products = [
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Ginger Garlic Paste",
-        highlight: "Contains No Xanthan Gum or Thickening agent - Ginger Garlic Paste",
+        highlight: "Contains No Xanthan Gum or Thickening agent",
         description: "Fresh and pungent paste to save prep time and enhance the base of any dish.",
         features: ["Freshly ground", "Strong flavor", "Long shelf life"],
         images: [gingerGarlicPaste]

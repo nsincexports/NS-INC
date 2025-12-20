@@ -97,7 +97,7 @@ const ProductDetail = () => {
               </div>
               {product.highlight && (
                 <div className="flex items-center gap-4 mt-4">
-                  <span className="text-orange-500 text-base md:text-lg font-bold tracking-widest uppercase">{product.highlight}</span>
+                  <span className="text-orange-500 text-base font-bold tracking-widest uppercase">{product.highlight}</span>
                 </div>
               )}
             </div>
