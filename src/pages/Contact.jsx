@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, MessageCircle, Copy, Check } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import SEO from '../components/SEO.jsx';
 
 export default function Contact() {
@@ -24,6 +25,13 @@ export default function Contact() {
     navigator.clipboard.writeText(text);
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
+  };
+
+  const handleWhatsApp = () => {
+    const phoneNumber = '+919833452921';
+    const message = `Hello NS INC Exports,\n\nI'm interested in your export services. Please provide me with more information.\n\nThank you!`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleSubmit = (e) => {
@@ -80,13 +88,22 @@ export default function Contact() {
       bgColor: 'from-orange-50 to-orange-100/50'
     },
     {
+      icon: FaWhatsapp,
+      title: 'WhatsApp',
+      value: '+91 98334 52921',
+      copyValue: '+919833452921',
+      link: 'https://wa.me/919833452921',
+      linear: 'from-green-600 to-green-500',
+      bgColor: 'from-green-50 to-green-100/50'
+    },
+    {
       icon: Mail,
       title: 'Email Address',
       value: 'nsinc.exports@gmail.com',
       copyValue: 'nsinc.exports@gmail.com',
       link: 'mailto:nsinc.exports@gmail.com',
-      linear: 'from-green-600 to-green-500',
-      bgColor: 'from-green-50 to-green-100/50'
+      linear: 'from-blue-600 to-blue-500',
+      bgColor: 'from-blue-50 to-blue-100/50'
     },
     {
       icon: MapPin,
@@ -102,10 +119,10 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 via-white to-gray-50 py-12 md:py-16">
       <SEO
-        title="Contact NS INC Exports"
-        description=""
-        keywords=""
-        canonical="/"
+        title="Contact NS INC Exports - Mumbai-Based Indian Export Company"
+        description="Reach NS INC Exports for premium Indian FMCG, food products & kitchen essentials export. Phone: +91 98334 52921, Email: nsinc.exports@gmail.com. Office address: Khar East, Mumbai. WhatsApp support available."
+        keywords="export company contact, Indian suppliers contact, Mumbai exporters phone, FMCG export enquiry form, food products export contact, kitchen accessories supplier WhatsApp, export partnership enquiry, bulk order contact, international distributor contact, NS INC Export contact"
+        canonical="/contact"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
@@ -121,6 +138,17 @@ export default function Contact() {
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Have questions or ready to start your export journey? We're here to help you every step of the way.
           </p>
+
+          {/* WhatsApp Quick Button */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleWhatsApp}
+              className="group inline-flex items-center gap-3 bg-linear-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-3 px-6 rounded-xl md:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-green-500/25"
+            >
+              <FaWhatsapp className="w-5 h-5 md:w-6 md:h-6" />
+              <span>Chat on WhatsApp</span>
+            </button>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
@@ -137,7 +165,11 @@ export default function Contact() {
                     className={`relative flex items-start gap-4 md:gap-5 bg-linear-to-br ${item.bgColor} p-5 md:p-6 rounded-2xl md:rounded-3xl border border-gray-200 group-hover:border-transparent shadow-sm group-hover:shadow-xl transition-all duration-300 cursor-pointer w-full text-left`}
                   >
                     <div className={`p-3 md:p-3.5 rounded-xl md:rounded-2xl bg-linear-to-br ${item.linear} shrink-0 shadow-lg`}>
-                      <item.icon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white" />
+                      {index === 1 ? (
+                        <FaWhatsapp className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white" />
+                      ) : (
+                        <item.icon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white" />
+                      )}
                     </div>
 
                     <div className="flex-1 min-w-0 pr-10">

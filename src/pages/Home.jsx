@@ -119,9 +119,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white overflow-hidden">
       <SEO
-        title="NS INC Exports"
-        description=""
-        keywords=""
+        title="NS INC Exports | Trusted Indian Exporters of FMCG, Food Products & Kitchen Essentials"
+        description="NS INC Exports: Mumbai-based export company with 14+ years expertise in exporting premium quality Indian products worldwide. Specializing in FMCG goods, packaged spices, ready-to-eat foods, and kitchen accessories to USA, Canada, Europe & Gulf markets."
+        keywords="Indian export company, Mumbai exporters, FMCG products exporter, food products manufacturer, kitchen accessories supplier, Indian spices export, ready-to-eat food export, international trade, export logistics, global distribution, quality Indian products, NS INC Exports"
         canonical="/"
       />
       <motion.section

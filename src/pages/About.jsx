@@ -49,10 +49,10 @@ export default function About() {
   return (
     <div className="min-h-screen bg-linear-to-b from-white via-gray-50 to-white py-12 md:py-16">
       <SEO
-        title="About NS INC Exports"
-        description=""
-        keywords=""
-        canonical="/"
+        title="About NS INC Exports - Mumbai-Based Indian Export Company Since 2009"
+        description="NS INC Exports: Mumbai-based Indian export company with 14+ years expertise in FMCG, food products & kitchen essentials. Serving USA, Canada, Europe & Gulf Countries with quality assurance & international logistics."
+        keywords="about NS INC Exports, Mumbai export company history, FMCG export expertise, food products manufacturer, kitchen accessories supplier, international logistics company, export compliance, quality assurance, global trade partners"
+        canonical="/about"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">

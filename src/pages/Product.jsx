@@ -167,10 +167,10 @@ const Product = () => {
   return (
     <div className="min-h-screen bg-white py-6 md:py-12">
       <SEO
-        title="NS INC Exports Products"
-        description=""
-        keywords=""
-        canonical="/"
+        title="NS INC Exports Products: FMCG, Spices & Kitchen Accessories | Mumbai"
+        description="Premium Indian products export catalog. FMCG goods, authentic spices (authorized S.R.R Masala distributor), cutlery & kitchen accessories. Mumbai-based export company serving global markets with quality Indian products."
+        keywords="export product catalog, Indian manufacturers catalog, FMCG export products, spices export range, kitchen accessories export, cutlery wholesale, food products catalog, Mumbai exporters products, international trade products,NS INC Products, SRR Masala, FMCG"
+        canonical="/products"
       />
       <div className="max-w-7xl mx-auto px-4 flex flex-col min-h-[80vh]">
 
