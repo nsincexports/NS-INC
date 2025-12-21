@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import Card from '../components/Card';
 import products from '../assets/products/products.js';
 import { motion, AnimatePresence } from 'motion/react';
@@ -17,26 +17,25 @@ const Product = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const isInitialMount = useRef(true);
 
   const categories = ['All', 'Spices', 'FMCG', 'Cutlery and Kitchen Accessories'];
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-
-    const savedCategory = searchParams.get('category');
-    const savedSubcategory = searchParams.get('subcategory');
-    const savedSearch = searchParams.get('search');
-    const savedPage = searchParams.get('page');
-
-    if (savedCategory) setActiveCategory(savedCategory);
-    if (savedSubcategory) setActiveSubcategory(savedSubcategory);
-    if (savedSearch) setSearchQuery(savedSearch);
-    if (savedPage) setCurrentPage(parseInt(savedPage));
+    setActiveCategory(searchParams.get('category') || 'All');
+    setActiveSubcategory(searchParams.get('subcategory') || 'All');
+    setSearchQuery(searchParams.get('search') || '');
+    setCurrentPage(parseInt(searchParams.get('page')) || 1);
   }, [location.search]);
 
   useEffect(() => {
-    const params = new URLSearchParams();
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
 
+    const params = new URLSearchParams();
     if (activeCategory !== 'All') params.set('category', activeCategory);
     if (activeSubcategory !== 'All') params.set('subcategory', activeSubcategory);
     if (searchQuery) params.set('search', searchQuery);
@@ -46,9 +45,9 @@ const Product = () => {
     const newUrl = queryString ? `/products?${queryString}` : '/products';
 
     if (location.search !== `?${queryString}`) {
-      navigate(newUrl, { replace: true });
+      navigate(newUrl);
     }
-  }, [activeCategory, activeSubcategory, searchQuery, currentPage, navigate, location.search]);
+  }, [activeCategory, activeSubcategory, searchQuery, currentPage]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -87,7 +86,7 @@ const Product = () => {
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
 
   useEffect(() => {
-    if (currentPage > totalPages) {
+    if (currentPage > totalPages && totalPages > 0) {
       setCurrentPage(1);
     }
   }, [totalPages, currentPage]);
@@ -147,21 +146,14 @@ const Product = () => {
 
   const handlePageChange = (pageNum) => {
     setCurrentPage(pageNum);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
 
   const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
   return (
