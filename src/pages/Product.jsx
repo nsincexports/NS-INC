@@ -19,7 +19,7 @@ const Product = () => {
   const navigate = useNavigate();
   const isInitialMount = useRef(true);
 
-  const categories = ['All', 'Spices', 'FMCG', 'Cutlery and Kitchen Accessories'];
+  const categories = ['All', 'Spices', 'Cutlery and Kitchen Accessories', 'FMCG'];
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
