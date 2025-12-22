@@ -117,7 +117,7 @@ export default function Contact() {
       <SEO
         title="Contact NS INC Exports - Mumbai-Based Indian Export Company"
         description="Reach NS INC Exports for premium Indian FMCG, food products & kitchen essentials export. Phone: +91 98334 52921, Email: nsinc.exports@gmail.com. Office address: Khar East, Mumbai. WhatsApp support available."
-        keywords="export company contact, Indian suppliers contact, Mumbai exporters phone, FMCG export enquiry form, food products export contact, kitchen accessories supplier WhatsApp, export partnership enquiry, bulk order contact, international distributor contact, NS INC Export contact"
+        keywords="Contact NS INC exporter, Indian export company contact, Mumbai exporter contact details, Indian exporter enquiry, FMCG exporter contact India, food products exporter contact, kitchenware exporter contact India, B2B export supplier contact, international buyers contact Indian exporter, wholesale exporter India contact, Indian export company email, export enquiry India, global importers contact India supplier, export partnership enquiry India, Indian merchant exporter contact, NS INC Mumbai contact page"
         canonical="/contact"
       />
       <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-5 lg:px-8">

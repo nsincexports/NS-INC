@@ -51,7 +51,7 @@ export default function About() {
       <SEO
         title="About NS INC Exports - Mumbai-Based Indian Export Company Since 2009"
         description="NS INC Exports: Mumbai-based Indian export company with 14+ years expertise in FMCG, food products & kitchen essentials. Serving USA, Canada, Europe & Gulf Countries with quality assurance & international logistics."
-        keywords="about NS INC Exports, Mumbai export company history, FMCG export expertise, food products manufacturer, kitchen accessories supplier, international logistics company, export compliance, quality assurance, global trade partners"
+        keywords="About NS INC, Indian export company profile, Mumbai based exporter India, trusted Indian exporter company, Indian merchant exporter, quality focused Indian exporter, premium Indian products exporter, long term export partner India, reliable FMCG exporter India, Indian food and FMCG export company, global trade partner India, Indian exporter serving USA Europe Gulf, experienced Indian export company, B2B export supplier India, export focused company Mumbai, international buyers Indian supplier, Indian export business India, export driven FMCG company, Indian exporter with compliance expertise"
         canonical="/about"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

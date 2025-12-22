@@ -161,7 +161,8 @@ const Product = () => {
       <SEO
         title="NS INC Exports Products: FMCG, Spices & Kitchen Accessories | Mumbai"
         description="Premium Indian products export catalog. FMCG goods, authentic spices (authorized S.R.R Masala distributor), cutlery & kitchen accessories. Mumbai-based export company serving global markets with quality Indian products."
-        keywords="export product catalog, Indian manufacturers catalog, FMCG export products, spices export range, kitchen accessories export, cutlery wholesale, food products catalog, Mumbai exporters products, international trade products,NS INC Products, SRR Masala, FMCG"
+        keywords="Indian FMCG products exporter, Indian food products exporter, packaged spices exporter India, ready to eat food exporter India, Indian spices bulk supplier, Indian spice exporter for USA and Europe, Indian FMCG supplier for importers, wholesale Indian food supplier, Indian cutlery exporter, stainless steel kitchenware exporter, kitchen accessories exporter India, kitchen tools wholesale exporter India, premium Indian products supplier, export quality food products India, FMCG products for international import, Indian exporter of food and kitchenware, bulk Indian products exporter, India based export product supplier
+"
         canonical="/products"
       />
       <div className="max-w-7xl mx-auto px-4 flex flex-col min-h-[80vh]">
