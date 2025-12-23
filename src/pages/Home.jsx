@@ -110,10 +110,8 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
-  const handleCardClick = (id) => {
-    navigate(`/product-detail?id=${id}`, {
-      state: { from: location.pathname + location.search }
-    });
+  const handleCardClick = (slug) => {
+    navigate(`/products/${slug}`);
   };
 
   return (
@@ -195,7 +193,7 @@ export default function Home() {
                   {displayProducts.map((product, index) => (
                     currentSlide === index && (
                       <motion.div
-                        onClick={() => handleCardClick(product.id)}
+                        onClick={() => handleCardClick(product.slug)}
                         key={product.id}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}

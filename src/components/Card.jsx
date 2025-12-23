@@ -1,16 +1,12 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Tag } from 'lucide-react';
 
 const Card = ({ product }) => {
   const navigate = useNavigate();
 
-  const location = useLocation();
-
   const handleCardClick = () => {
-    navigate(`/product-detail?id=${product.id}`, {
-      state: { from: location.pathname + location.search }
-    });
+    navigate(`/products/${product.slug}`);
   };
 
   return (

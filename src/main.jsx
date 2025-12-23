@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import { Home, About, Contact, Product,ProductDetail } from './pages/index.js'
+import { Home, About, Contact, Product, ProductDetail } from './pages/index.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,8 +12,8 @@ const router = createBrowserRouter(
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
       <Route path='products' element={<Product />} />
-      <Route path='product-detail' element={<ProductDetail />} />
-    </Route>
+      <Route path='products/:slug' element={<ProductDetail />} />
+    </Route >
   )
 )
 

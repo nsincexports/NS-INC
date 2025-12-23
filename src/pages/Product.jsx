@@ -18,15 +18,21 @@ const Product = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isInitialMount = useRef(true);
+  const isInternalChange = useRef(false);
 
   const categories = ['All', 'Spices', 'Cutlery and Kitchen Accessories', 'FMCG'];
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    setActiveCategory(searchParams.get('category') || 'All');
-    setActiveSubcategory(searchParams.get('subcategory') || 'All');
-    setSearchQuery(searchParams.get('search') || '');
-    setCurrentPage(parseInt(searchParams.get('page')) || 1);
+    const cat = searchParams.get('category') || 'All';
+    const sub = searchParams.get('subcategory') || 'All';
+    const search = searchParams.get('search') || '';
+    const page = parseInt(searchParams.get('page')) || 1;
+
+    setActiveCategory(cat);
+    setActiveSubcategory(sub);
+    setSearchQuery(search);
+    setCurrentPage(page);
   }, [location.search]);
 
   useEffect(() => {
@@ -35,17 +41,20 @@ const Product = () => {
       return;
     }
 
-    const params = new URLSearchParams();
-    if (activeCategory !== 'All') params.set('category', activeCategory);
-    if (activeSubcategory !== 'All') params.set('subcategory', activeSubcategory);
-    if (searchQuery) params.set('search', searchQuery);
-    if (currentPage !== 1) params.set('page', currentPage.toString());
+    if (isInternalChange.current) {
+      const params = new URLSearchParams();
+      if (activeCategory !== 'All') params.set('category', activeCategory);
+      if (activeSubcategory !== 'All') params.set('subcategory', activeSubcategory);
+      if (searchQuery) params.set('search', searchQuery);
+      if (currentPage !== 1) params.set('page', currentPage.toString());
 
-    const queryString = params.toString();
-    const newUrl = queryString ? `/products?${queryString}` : '/products';
+      const queryString = params.toString();
+      const newUrl = queryString ? `/products?${queryString}` : '/products';
 
-    if (location.search !== `?${queryString}`) {
-      navigate(newUrl);
+      if (location.search !== `?${queryString}`) {
+        navigate(newUrl);
+      }
+      isInternalChange.current = false;
     }
   }, [activeCategory, activeSubcategory, searchQuery, currentPage]);
 
@@ -85,12 +94,6 @@ const Product = () => {
 
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
 
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(1);
-    }
-  }, [totalPages, currentPage]);
-
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -110,6 +113,7 @@ const Product = () => {
   };
 
   const handleCategoryChange = (cat) => {
+    isInternalChange.current = true;
     setActiveCategory(cat);
     setActiveSubcategory('All');
     setSearchQuery('');
@@ -117,12 +121,14 @@ const Product = () => {
   };
 
   const handleSubcategoryChange = (sub) => {
+    isInternalChange.current = true;
     setActiveSubcategory(sub);
     setSearchQuery('');
     setCurrentPage(1);
   };
 
   const handleSearchChange = (e) => {
+    isInternalChange.current = true;
     const value = e.target.value;
     setSearchQuery(value);
     setCurrentPage(1);
@@ -133,11 +139,13 @@ const Product = () => {
   };
 
   const clearSearch = () => {
+    isInternalChange.current = true;
     setSearchQuery('');
     setCurrentPage(1);
   };
 
   const resetAll = () => {
+    isInternalChange.current = true;
     setSearchQuery('');
     setActiveCategory('All');
     setActiveSubcategory('All');
@@ -145,15 +153,22 @@ const Product = () => {
   };
 
   const handlePageChange = (pageNum) => {
+    isInternalChange.current = true;
     setCurrentPage(pageNum);
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    if (currentPage > 1) {
+      isInternalChange.current = true;
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   const handleNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    if (currentPage < totalPages) {
+      isInternalChange.current = true;
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
@@ -161,12 +176,10 @@ const Product = () => {
       <SEO
         title="NS INC Exports Products: FMCG, Spices & Kitchen Accessories | Mumbai"
         description="Premium Indian products export catalog. FMCG goods, authentic spices (authorized S.R.R Masala distributor), cutlery & kitchen accessories. Mumbai-based export company serving global markets with quality Indian products."
-        keywords="Indian FMCG products exporter, Indian food products exporter, packaged spices exporter India, ready to eat food exporter India, Indian spices bulk supplier, Indian spice exporter for USA and Europe, Indian FMCG supplier for importers, wholesale Indian food supplier, Indian cutlery exporter, stainless steel kitchenware exporter, kitchen accessories exporter India, kitchen tools wholesale exporter India, premium Indian products supplier, export quality food products India, FMCG products for international import, Indian exporter of food and kitchenware, bulk Indian products exporter, India based export product supplier
-"
+        keywords="Indian FMCG products exporter, Indian food products exporter, packaged spices exporter India, ready to eat food exporter India, Indian spices bulk supplier, Indian spice exporter for USA and Europe, Indian FMCG supplier for importers, wholesale Indian food supplier, Indian cutlery exporter, stainless steel kitchenware exporter, kitchen accessories exporter India, kitchen tools wholesale exporter India, premium Indian products supplier, export quality food products India, FMCG products for international import, Indian exporter of food and kitchenware, bulk Indian products exporter, India based export product supplier"
         canonical="/products"
       />
       <div className="max-w-7xl mx-auto px-4 flex flex-col min-h-[80vh]">
-
         <div className="text-center mb-8">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 border border-orange-100">
             <LayoutGrid size={14} /> Our Catalogue

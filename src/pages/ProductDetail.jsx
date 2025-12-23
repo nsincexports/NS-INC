@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Search, ArrowLeft } from 'lucide-react';
 import products from '../assets/products/products.js';
 import SEO from '../components/SEO.jsx';
 
 const ProductDetail = () => {
-  const [searchParams] = useSearchParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-  const id = searchParams.get('id');
 
   const [product, setProduct] = useState(null);
   const [selectedImg, setSelectedImg] = useState(0);
@@ -17,11 +15,11 @@ const ProductDetail = () => {
   const [isZooming, setIsZooming] = useState(false);
 
   useEffect(() => {
-    const foundProduct = products.find(p => p.id === id);
+    const foundProduct = products.find(p => p.slug === slug);
     if (foundProduct) {
       setProduct(foundProduct);
     }
-  }, [id]);
+  }, [slug]);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -31,8 +29,7 @@ const ProductDetail = () => {
   };
 
   const handleBack = () => {
-    const referrer = location.state?.from || '/products';
-    navigate(referrer);
+    navigate(-1);
   };
 
   if (!product) return <div className="h-screen flex items-center justify-center">
@@ -57,7 +54,7 @@ const ProductDetail = () => {
         title={`NS INC Exports - ${product.title}`}
         description={product.description}
         keywords={`${product.category}, ${product.title}, export, bulk order`}
-        canonical={`/product-detail?id=${id}`}
+        canonical={`/products/${slug}`}
       />
 
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center gap-2 text-sm text-gray-500 my-5">
@@ -114,8 +111,11 @@ const ProductDetail = () => {
 
           <div className="lg:col-span-5 flex flex-col pt-4">
             <div className="border-b border-gray-100 pb-8">
-              <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-bold tracking-wider text-[10px] uppercase">
+              <span className="bg-orange-600 shadow-md text-white px-3 py-1 rounded-full font-bold tracking-wider text-[10px] uppercase">
                 {product.category}
+              </span>
+              <span className="bg-orange-600 shadow-md ml-2 text-white px-3 py-1 rounded-full font-bold tracking-wider text-[10px] uppercase">
+                {product.subcategory}
               </span>
               <h1 className="text-3xl md:text-4xl font-black text-gray-900 mt-4 leading-tight italic tracking-tight">
                 {product.title}

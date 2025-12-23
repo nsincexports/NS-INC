@@ -194,231 +194,257 @@ import goanXacutiMasala from './srr_non_veg30.webp';
 const products = [
     {
         id: "NSINC0028",
+        slug: "metal-drinking-straws",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC - 4Pcs Reusable Metal Drinking Straws with Cleaning Brush",
+        title: "4Pcs Reusable Metal Drinking Straws with Cleaning Brush",
         description: "Reusable and eco-friendly food grade stainless steel straws. Safe for kids, adults, and senior citizens with no metal aftertaste.",
         features: ["2 Straight + 2 Bent Straws + 1 Cleaner", "304 Stainless Steel Rust Proof", "Portable & Travel friendly", "Dishwasher Safe"],
         images: [metalStraw1, metalStraw2, metalStraw3, metalStraw4, metalStraw5, metalStraw6, qualityAssurance]
     },
     {
         id: "NSINC0027",
+        slug: "gold-dinner-fork-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Dinner Fork Set (7.5inch / 19 cm)",
+        title: "6 Pcs Premium Gold Dinner Fork Set (7.5inch / 19 cm)",
         description: "Indulge in desserts and delicacies with these elegant champagne gold and matt-finished dinner forks.",
         features: ["18/0 Stainless Steel", "Gold Plated Designer Piece", "Authentic retro design", "Suitable for commercial and domestic use"],
         images: [goldenDiningFork1, goldenDiningFork2, goldenDiningFork3, goldenDiningFork4, goldenDiningFork5, qualityAssurance]
     },
     {
         id: "NSINC0026",
+        slug: "gold-baby-fork-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Baby Fork Set (6.5inch / 16.5 cm)",
+        title: "6 Pcs Premium Gold Baby Fork Set (6.5inch / 16.5 cm)",
         description: "Elegant golden hue baby forks, perfectly proportioned for salads, fruits, starters, and appetizers.",
         features: ["Premium Gold Finish", "Durable Stainless Steel", "Dishwasher safe", "Perfect for small portions"],
         images: [goldenBabyFork1, goldenBabyFork2, goldenBabyFork3, goldenBabyFork4, goldenBabyFork5, goldenBabyFork6, goldenBabyFork7, qualityAssurance]
     },
     {
         id: "NSINC0025",
+        slug: "gold-tea-fork",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Tea Fork (6inch / 15.2 cm)",
+        title: "6 Pcs Premium Gold Tea Fork (6inch / 15.2 cm)",
         description: "Adds an elegant touch to table settings. Ready to tackle everything from cheesecakes to delicate pastries.",
         features: ["Elegant Golden Hue", "Stainless Steel", "Comfortable Grip", "Ideal for Tea Time"],
         images: [goldenTeaFork1, goldenTeaFork2, goldenTeaFork3, goldenTeaFork4, qualityAssurance]
     },
     {
         id: "NSINC0024",
+        slug: "gold-dinner-spoon-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Dinner Spoon Set (7.5inch / 19 cm)",
+        title: "6 Pcs Premium Gold Dinner Spoon Set (7.5inch / 19 cm)",
         description: "Luxury gold dinner spoon set made of best quality stainless steel, rust-proof and nickel-free for daily use.",
         features: ["Premium Gold Plating", "Healthy and Rust-proof", "Well-balanced weight", "Smooth edges"],
         images: [goldenDiningSpoon1, goldenDiningSpoon2, goldenDiningSpoon3, goldenDiningSpoon4, goldenDiningSpoon5, qualityAssurance]
     },
     {
         id: "NSINC0023",
+        slug: "gold-kids-spoon-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Kids Spoon Set (6.5inch / 16.5 cm)",
+        title: "6 Pcs Premium Gold Kids Spoon Set (6.5inch / 16.5 cm)",
         description: "Unique and elegant appearance with a sleek design. Durable and easy-to-clean gold spoons for kids.",
         features: ["Nickel-free Stainless Steel", "Contemporary Style", "Dishwasher safe", "Ideal Housewarming Gift"],
         images: [goldenKidsSpoon1, goldenKidsSpoon2, goldenKidsSpoon3, goldenKidsSpoon4, goldenKidsSpoon5, qualityAssurance]
     },
     {
         id: "NSINC0022",
+        slug: "gold-tea-spoon-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC 6 Pcs Premium Gold Tea Spoon Set (5.5inch / 13.9 cm)",
+        title: "6 Pcs Premium Gold Tea Spoon Set (5.5inch / 13.9 cm)",
         description: "High quality gold coated tea spoon set, essential for kitchens, restaurants, and bars during teatime.",
         features: ["Non-corrosion Resistance", "Sturdy & Durable", "Concise Design", "Perfect for Espresso/Tea"],
         images: [goldenTeaSpoon1, goldenTeaSpoon2, goldenTeaSpoon3, goldenTeaSpoon4, goldenTeaSpoon5, goldenTeaSpoon6, goldenTeaSpoon7, qualityAssurance]
     },
     {
         id: "NSINC0021",
+        slug: "ice-cream-scoop",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Ice Cream Scoop Portion Control (18/8 Stainless Steel)",
+        title: "Ice Cream Scoop Portion Control (18/8 Stainless Steel)",
         description: "Professional grade portion control ice cream scoop with a durable red handle for better grip.",
         features: ["18/8 Stainless Steel", "Portion Control Design", "Ergonomic Red Handle", "Durable Construction"],
         images: [iceCreamScoop1, iceCreamScoop2, iceCreamScoop3, qualityAssurance]
     },
     {
         id: "NSINC0020",
+        slug: "steel-chopping-board",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Premium Steel Cutting / Chopping Board (13 x 9 inches)",
+        title: "Premium Steel Cutting / Chopping Board (13 x 9 inches)",
         description: "Professional-grade stainless steel chopping board providing exceptional durability and a sleek modern appearance.",
         features: ["Non-porous Surface", "13 x 9 inch Large Surface", "Heavy-duty Construction", "Easy to Sanitize"],
         images: [steelChoppingBoard1, steelChoppingBoard2, steelChoppingBoard3, steelChoppingBoard4, steelChoppingBoard5, steelChoppingBoard6, steelChoppingBoard7, steelChoppingBoard8, qualityAssurance]
     },
     {
         id: "NSINC0019",
+        slug: "bamboo-chopping-board",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Premium Bamboo Wooden Cutting / Chopping Board",
+        title: "Premium Bamboo Wooden Cutting / Chopping Board",
         description: "Crafted from solid bamboo for long-lasting performance. Reversible design for maximum value and use.",
         features: ["Solid Bamboo Wood", "Knife-friendly Surface", "Reversible Design", "Easy Maintenance"],
         images: [woodenChoppingBoard1, woodenChoppingBoard2, woodenChoppingBoard3, woodenChoppingBoard4, woodenChoppingBoard5, qualityAssurance]
     },
     {
         id: "NSINC0018",
+        slug: "butter-knife-spreader",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC - 2pcs Set of Premium Quality Butter Knife / Spreader",
+        title: "2pcs Set of Premium Quality Butter Knife / Spreader",
         description: "Premium stainless steel construction ensures durability and resistance to rust and corrosion. Smooth, rounded blade edge perfect for spreading butter, jam, and other condiments.",
         features: ["Premium stainless steel", "Smooth rounded edge", "Dishwasher safe", "8-inch length"],
         images: [butterKnife1, butterKnife2, butterKnife3, butterKnife4, butterKnife5, butterKnife6, qualityAssurance]
     },
     {
         id: "NSINC07",
+        slug: "incense-agarbatti-stand",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC King Size Long Tower Incense / Agarbatti Stand with Ash Catcher",
+        title: "King Size Long Tower Incense / Agarbatti Stand with Ash Catcher",
         description: "Safe to use and saves children from burns. Fitted with a separate ash collector that keeps the prayer area, room and office place clean.",
         features: ["Holds 5 sticks", "Hand crafted", "Separate ash collector", "Easy to clean"],
         images: [towerIncense1, towerIncense2, towerIncense3, towerIncense4, towerIncense5, qualityAssurance]
     },
     {
         id: "NSINC001",
+        slug: "chimta-pakkad-pincer",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Chimta / Pakkad / Kitchen Pincer",
+        title: "Chimta / Pakkad / Kitchen Pincer",
         description: "Solid Stainless Steel tips offer a firm grip while Lifting and Turning small and medium sized pots, pans, utensils and other cookware.",
         features: ["Stainless steel", "Sleek handles", "Firm grip", "Heat resistant use"],
         images: [pincher1, pincher2, pincher3, pincher4, qualityAssurance]
     },
     {
         id: "NSINC006",
+        slug: "cutlery-holder-organizer",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Cutlery Holder / Organizer - Large size (5.5inches)",
+        title: "Cutlery Holder / Organizer - Large size (5.5inches)",
         description: "Premium quality stainless steel cutlery holder to keep your dining area and kitchen organized.",
         features: ["Large 5.5 inch size", "Stainless steel", "Easy to clean", "Durable build"],
         images: [cutleryHolder1, cutleryHolder2, cutleryHolder3, cutleryHolder4, cutleryHolder5, qualityAssurance]
     },
     {
         id: "NSINC0017",
+        slug: "tea-spoon-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC - 6pcs Set of Premium Quality Tea Spoon, 5.5 inches",
+        title: "6pcs Set of Premium Quality Tea Spoon, 5.5 inches",
         description: "Complete set includes 6 matching Spoons - Perfect for tea, coffee, desserts, and other daily serving needs.",
         features: ["6 piece set", "5.5 inches length", "Rust resistant", "Elegant design"],
         images: [teaSpoon1, teaSpoon2, teaSpoon3, teaSpoon4, teaSpoon5, teaSpoon6, teaSpoon7, teaSpoon8, qualityAssurance]
     },
     {
         id: "NSINC0011",
+        slug: "metal-turner-palta",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Big - 14 inches Silver Plating Metal Turner / Palta",
+        title: "Big - 14 inches Silver Plating Metal Turner / Palta",
         description: "Made of high-quality stainless steel with strong rust resistance. Right weight and comfortable handle provide good grip.",
         features: ["14 inches long", "Silver plating", "Slotted design", "Hanging hook hole"],
         images: [turner1, turner2, turner3, turner4, turner5, qualityAssurance]
     },
     {
         id: "NSINC009",
+        slug: "jhara-oil-strainer",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Large - Jhara / Oil Strainer with Wooden Handle, 18 inches",
+        title: "Large - Jhara / Oil Strainer with Wooden Handle, 18 inches",
         description: "Perfect for frying french fries, fish, vegetables, and meats. Long wooden handle protects hands from hot oil.",
         features: ["18 inches length", "Wooden handle", "High quality mesh", "Anti-rust"],
         images: [oilStrainer1, oilStrainer2, oilStrainer3, oilStrainer4, oilStrainer5, oilStrainer6, qualityAssurance]
     },
     {
         id: "NSINC002",
+        slug: "hand-push-whisk-blender",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Semi-Automatic Hand Push Whisk / Blender",
+        title: "Semi-Automatic Hand Push Whisk / Blender",
         description: "Whip up fluffy eggs, sauces, and batters with this 12-inch stainless steel whisk using push mechanism.",
         features: ["Semi-automatic", "12 inches length", "Efficient blending", "Stainless steel"],
         images: [handPushWhisk1, handPushWhisk2, handPushWhisk3, handPushWhisk4, handPushWhisk5, handPushWhisk6, handPushWhisk7, qualityAssurance]
     },
     {
         id: "NSINC0015",
+        slug: "dining-spoon-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC - 6pcs Set of Premium Quality Dining Spoon, 7.5 inches",
+        title: "6pcs Set of Premium Quality Dining Spoon, 7.5 inches",
         description: "Smooth, modern design adds a touch of sophistication to your table setting. Perfect for everyday use.",
         features: ["6 piece set", "7.5 inches", "Premium finish", "Dishwasher safe"],
         images: [diningSpoon1, diningSpoon2, diningSpoon3, diningSpoon4, diningSpoon5, qualityAssurance]
     },
     {
         id: "NSINC0016",
+        slug: "dining-fork-set",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC - 6pcs Set of Premium Quality Dining Fork, 7.5 inches",
+        title: "6pcs Set of Premium Quality Dining Fork, 7.5 inches",
         description: "Elegant design and perfectly proportioned size, ready to tackle everything from cheesecakes to pastries.",
         features: ["6 piece set", "14 gauge thickness", "7.5x1 inches", "20g weight each"],
         images: [diningFork1, diningFork2, diningFork3, diningFork4, diningFork5, diningFork6, diningFork7, qualityAssurance]
     },
     {
         id: "NSINC0013",
+        slug: "oval-serving-tong",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC - 2pcs Set Oval Tong - Cake, Salad Dessert Serving Tong",
+        title: "2pcs Set Oval Tong - Cake, Salad Dessert Serving Tong",
         description: "Serve salads in sophisticated style with these salad tongs featuring hammer-finish handles.",
         features: ["2 piece set", "Oval shape", "Hammered finish", "Hygienic serving"],
         images: [ovalTong1, ovalTong2, ovalTong3, ovalTong4, ovalTong5, ovalTong6, ovalTong7, qualityAssurance]
     },
     {
         id: "NSINC0014",
+        slug: "multi-serving-tong",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC - 2pcs Set Multi Tong - Cake, Salad Dessert Serving Tong",
+        title: "2pcs Set Multi Tong - Cake, Salad Dessert Serving Tong",
         description: "Designed for easy serving and transporting of even the most delicate dishes like cakes and snacks.",
         features: ["2 piece set", "Multi-purpose", "Steel construction", "Secure grip"],
         images: [tong1, tong2, tong3, tong4, tong5, qualityAssurance]
     },
     {
         id: "NSINC0012",
+        slug: "long-comfort-ladle",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Cutlery",
-        title: "NS INC Big - 12.5 Silver Plating Long Comfort Ladle",
+        title: "Big - 12.5 Silver Plating Long Comfort Ladle",
         description: "Perfectly curved spout ensures drip-free ladling and the deep bowl offers generous capacity for curries.",
         features: ["12.5 inches", "Drip-free spout", "Deep bowl", "Silver plating"],
         images: [ladle1, ladle2, ladle3, ladle4, qualityAssurance]
     },
     {
         id: "NSINC004",
+        slug: "non-slip-serving-tong-12",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Premium Non Slip Serving Tong, Vinyl Coated, 12 inches",
+        title: "Premium Non Slip Serving Tong, Vinyl Coated, 12 inches",
         description: "Heavy duty 12-inch tongs with vinyl coating for non-slip grip, perfect for grilling and large servings.",
         features: ["12 inches", "Vinyl coated", "Non-slip", "Professional grade"],
         images: [servingTong12Inch1, servingTong12Inch2, servingTong12Inch3, servingTong12Inch4, servingTong12Inch5, servingTong12Inch6, servingTong12Inch7, qualityAssurance]
     },
     {
         id: "NSINC005",
+        slug: "non-slip-serving-tong-9",
         category: "Cutlery and Kitchen Accessories",
         subcategory: "Kitchen Accessories",
-        title: "NS INC Premium Non Slip Serving Tong, Vinyl Coated, 9 inches",
+        title: "Premium Non Slip Serving Tong, Vinyl Coated, 9 inches",
         description: "Versatile 9-inch tongs for delicate appetizers to main courses with precision and control.",
         features: ["9 inches (23cms)", "Scalloped edges", "Black handle", "Heat resistant distance"],
         images: [servingTong9Inch1, servingTong9Inch2, servingTong9Inch3, servingTong9Inch4, servingTong9Inch5, servingTong9Inch6, qualityAssurance]
     },
     {
         id: "SPICE001",
+        slug: "black-salt-pepper-powder",
         category: "Spices",
         subcategory: "Veg",
         title: "Black Salt & Pepper Powder",
@@ -428,6 +454,7 @@ const products = [
     },
     {
         id: "SPICE002",
+        slug: "chana-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Chana Masala",
@@ -437,6 +464,7 @@ const products = [
     },
     {
         id: "SPICE003",
+        slug: "chat-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Chat Masala",
@@ -446,6 +474,7 @@ const products = [
     },
     {
         id: "SPICE004",
+        slug: "chole-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Chole Masala",
@@ -455,6 +484,7 @@ const products = [
     },
     {
         id: "SPICE005",
+        slug: "garam-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Garam Masala",
@@ -464,6 +494,7 @@ const products = [
     },
     {
         id: "SPICE006",
+        slug: "gobi-manchurian-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Gobi Manchurian Masala",
@@ -473,6 +504,7 @@ const products = [
     },
     {
         id: "SPICE007",
+        slug: "hing-powder",
         category: "Spices",
         subcategory: "Veg",
         title: "Hing Powder (Asafoetida)",
@@ -482,6 +514,7 @@ const products = [
     },
     {
         id: "SPICE008",
+        slug: "kashmiri-chilli-powder",
         category: "Spices",
         subcategory: "Veg",
         title: "Kashmiri Chilli Powder",
@@ -491,6 +524,7 @@ const products = [
     },
     {
         id: "SPICE009",
+        slug: "malwani-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Malwani Masala",
@@ -500,6 +534,7 @@ const products = [
     },
     {
         id: "SPICE010",
+        slug: "mutter-paneer-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Mutter Paneer Masala",
@@ -509,6 +544,7 @@ const products = [
     },
     {
         id: "SPICE011",
+        slug: "paneer-green-tikka-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Paneer Green Tikka Masala",
@@ -518,6 +554,7 @@ const products = [
     },
     {
         id: "SPICE012",
+        slug: "pav-bhaji-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Pav Bhaji Masala",
@@ -527,6 +564,7 @@ const products = [
     },
     {
         id: "SPICE013",
+        slug: "rasam-powder",
         category: "Spices",
         subcategory: "Veg",
         title: "Rasam Powder",
@@ -536,6 +574,7 @@ const products = [
     },
     {
         id: "SPICE014",
+        slug: "sambhar-powder",
         category: "Spices",
         subcategory: "Veg",
         title: "Sambhar Powder",
@@ -545,6 +584,7 @@ const products = [
     },
     {
         id: "SPICE015",
+        slug: "usal-misal-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Usal Misal Masala",
@@ -554,6 +594,7 @@ const products = [
     },
     {
         id: "SPICE016",
+        slug: "veg-curry-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Veg Curry Masala",
@@ -563,6 +604,7 @@ const products = [
     },
     {
         id: "SPICE017",
+        slug: "veg-korma-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Veg Korma Masala",
@@ -572,6 +614,7 @@ const products = [
     },
     {
         id: "SPICE018",
+        slug: "veg-pulao-masala",
         category: "Spices",
         subcategory: "Veg",
         title: "Veg Pulao Masala",
@@ -581,6 +624,7 @@ const products = [
     },
     {
         id: "SPICE019",
+        slug: "ginger-garlic-paste-v",
         category: "Spices",
         subcategory: "Veg",
         title: "Ginger Garlic Paste",
@@ -591,6 +635,7 @@ const products = [
     },
     {
         id: "SPICE020",
+        slug: "bafath-powder",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Bafath Powder",
@@ -600,6 +645,7 @@ const products = [
     },
     {
         id: "SPICE021",
+        slug: "beef-curry-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Beef Curry Masala",
@@ -609,6 +655,7 @@ const products = [
     },
     {
         id: "SPICE022",
+        slug: "biryani-kit",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Biryani Kit",
@@ -618,6 +665,7 @@ const products = [
     },
     {
         id: "SPICE023",
+        slug: "butter-chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Butter Chicken Masala",
@@ -627,6 +675,7 @@ const products = [
     },
     {
         id: "SPICE024",
+        slug: "cafreal-special-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Cafreal Special Masala",
@@ -636,6 +685,7 @@ const products = [
     },
     {
         id: "SPICE025",
+        slug: "chicken-mutton-dum-biryani-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken & Mutton Dum Biryani Masala",
@@ -645,6 +695,7 @@ const products = [
     },
     {
         id: "SPICE026",
+        slug: "chicken-65-kabab-powder",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken 65 & Kabab Powder",
@@ -654,6 +705,7 @@ const products = [
     },
     {
         id: "SPICE027",
+        slug: "chicken-angara-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Angara Masala",
@@ -663,6 +715,7 @@ const products = [
     },
     {
         id: "SPICE028",
+        slug: "chicken-chilli-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Chilli Masala",
@@ -672,6 +725,7 @@ const products = [
     },
     {
         id: "SPICE029",
+        slug: "chicken-ghee-roast-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Ghee Roast Masala",
@@ -681,6 +735,7 @@ const products = [
     },
     {
         id: "SPICE030",
+        slug: "chicken-kolhapuri-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Kolhapuri Masala",
@@ -690,6 +745,7 @@ const products = [
     },
     {
         id: "SPICE031",
+        slug: "chicken-lollipop-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Lollipop Masala",
@@ -699,6 +755,7 @@ const products = [
     },
     {
         id: "SPICE032",
+        slug: "chicken-manchurian-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Manchurian Masala",
@@ -708,6 +765,7 @@ const products = [
     },
     {
         id: "SPICE033",
+        slug: "chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Masala",
@@ -717,6 +775,7 @@ const products = [
     },
     {
         id: "SPICE034",
+        slug: "chicken-pulimunchi-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Pulimunchi Masala",
@@ -726,6 +785,7 @@ const products = [
     },
     {
         id: "SPICE035",
+        slug: "chicken-ready-mix-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Ready Mix Masala",
@@ -735,6 +795,7 @@ const products = [
     },
     {
         id: "SPICE036",
+        slug: "chicken-sukka-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Sukka Masala",
@@ -744,6 +805,7 @@ const products = [
     },
     {
         id: "SPICE037",
+        slug: "tandoori-chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Tandoori Chicken Masala",
@@ -753,6 +815,7 @@ const products = [
     },
     {
         id: "SPICE038",
+        slug: "fish-curry-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Fish Curry Masala",
@@ -762,6 +825,7 @@ const products = [
     },
     {
         id: "SPICE039",
+        slug: "fish-fry-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Fish Fry Masala",
@@ -771,6 +835,7 @@ const products = [
     },
     {
         id: "SPICE040",
+        slug: "chicken-mutton-korma-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken & Mutton Korma Masala",
@@ -780,6 +845,7 @@ const products = [
     },
     {
         id: "SPICE041",
+        slug: "hyderabadi-biryani-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Hyderabadi Biryani Masala",
@@ -789,6 +855,7 @@ const products = [
     },
     {
         id: "SPICE042",
+        slug: "kadhai-chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Kadhai Chicken Masala",
@@ -798,6 +865,7 @@ const products = [
     },
     {
         id: "SPICE043",
+        slug: "kerala-special-chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Kerala Special Chicken Masala",
@@ -807,6 +875,7 @@ const products = [
     },
     {
         id: "SPICE044",
+        slug: "kori-rotti-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Kori Rotti Masala",
@@ -816,6 +885,7 @@ const products = [
     },
     {
         id: "SPICE045",
+        slug: "mutton-meat-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Mutton/Meat Masala",
@@ -825,6 +895,7 @@ const products = [
     },
     {
         id: "SPICE046",
+        slug: "chicken-pepper-ghee-roast",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Chicken Pepper Ghee Roast",
@@ -834,6 +905,7 @@ const products = [
     },
     {
         id: "SPICE047",
+        slug: "pork-special-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Pork Special Masala",
@@ -843,6 +915,7 @@ const products = [
     },
     {
         id: "SPICE048",
+        slug: "udupi-special-chicken-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Udupi Special Chicken Masala",
@@ -852,6 +925,7 @@ const products = [
     },
     {
         id: "SPICE049",
+        slug: "goan-xacuti-masala",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Goan Xacuti Masala",
@@ -861,6 +935,7 @@ const products = [
     },
     {
         id: "SPICE050",
+        slug: "ginger-garlic-paste-nv",
         category: "Spices",
         subcategory: "Non-Veg",
         title: "Ginger Garlic Paste",
