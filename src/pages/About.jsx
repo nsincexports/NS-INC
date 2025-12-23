@@ -1,5 +1,6 @@
 import { Target, Eye, CheckCircle, Globe, Package, Shield, Users, Clock, Award, TrendingUp } from 'lucide-react';
 import SEO from '../components/SEO.jsx';
+import { aboutBanner } from '../assets/index.js';
 
 export default function About() {
   const sections = [
@@ -34,7 +35,8 @@ export default function About() {
     "Efficient global shipping solutions",
     "Secure handling and transportation",
     "Timely delivery across international markets",
-    "Cost-effective export planning"
+    "Cost-effective export planning",
+    "From Sky to Sea, We Deliver Globally"
   ];
 
   const whyChooseUs = [
@@ -130,27 +132,47 @@ export default function About() {
             <div className="absolute -inset-4 bg-linear-to-r from-green-600 to-green-500 rounded-2xl md:rounded-3xl blur-2xl opacity-10"></div>
 
             <div className="relative bg-linear-to-br from-green-50 to-green-100/50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-green-200">
-              <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                <Clock className="text-green-600 w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9" />
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-                  Logistics & Supply Chain Expertise
-                </h2>
-              </div>
-
-              <p className="text-gray-700 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
-                With over 14 years of hands-on experience, our logistics team ensures:
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                {logisticsPoints.map((point, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-2 md:gap-3 bg-white p-4 md:p-5 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
-                  >
-                    <CheckCircle className="text-orange-600 shrink-0 mt-0.5 w-4 h-4 md:w-5 md:h-5" />
-                    <span className="text-gray-800 text-sm md:text-base font-medium">{point}</span>
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="w-full lg:w-[40%]">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <Clock className="text-green-600 w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9" />
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                      Logistics & Supply Chain Expertise
+                    </h2>
                   </div>
-                ))}
+
+                  <p className="text-gray-700 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
+                    With over 14 years of hands-on experience, our logistics team ensures:
+                  </p>
+
+                  <div className="flex lg:hidden w-full lg:w-[60%] justify-center lg:justify-end mb-10">
+                    <img
+                      src={aboutBanner}
+                      alt="Logistics Excellence"
+                      className="w-full h-auto rounded-2xl shadow-2xl object-cover border-4 border-white"
+                    />
+                  </div>
+
+                  <div className="space-y-3">
+                    {logisticsPoints.map((point, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-2 md:gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-white"
+                      >
+                        <CheckCircle className="text-orange-600 shrink-0 mt-0.5 w-4 h-4" />
+                        <span className="text-gray-800 text-sm md:text-base font-medium leading-tight">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="hidden lg:flex w-full lg:w-[60%] justify-center lg:justify-end">
+                  <img
+                    src={aboutBanner}
+                    alt="Logistics Excellence"
+                    className="w-full h-auto rounded-2xl shadow-2xl object-cover border-4 border-white"
+                  />
+                </div>
               </div>
             </div>
           </section>
