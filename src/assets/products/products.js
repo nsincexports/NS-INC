@@ -444,10 +444,10 @@ const products = [
     },
     {
         id: "SPICE001",
-        slug: "black-salt-pepper-powder",
+        slug: "black-salt",
         category: "Spices",
         subcategory: "Veg",
-        title: "Black Salt & Pepper Powder",
+        title: "Black Salt",
         description: "A perfect blend of pungent black salt and spicy black pepper for seasoning snacks and salads.",
         features: ["Authentic taste", "Export quality packaging", "No artificial colors", "Fine ground"],
         images: [blackSaltPaper]
