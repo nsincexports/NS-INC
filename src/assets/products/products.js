@@ -141,7 +141,7 @@ import turner2 from './turner2.webp';
 import turner3 from './turner3.webp';
 import turner4 from './turner4.webp';
 import turner5 from './turner5.webp';
-import blackSaltPaper from './srr_veg1.webp';
+import blackSaltPowder from './srr_veg1.webp';
 import chanaMasala from './srr_veg2.webp';
 import chatMasala from './srr_veg3.webp';
 import choleMasala from './srr_veg4.webp';
@@ -444,13 +444,13 @@ const products = [
     },
     {
         id: "SPICE001",
-        slug: "black-salt",
+        slug: "black-salt-powder",
         category: "Spices",
         subcategory: "Veg",
-        title: "Black Salt",
+        title: "Black Salt Powder",
         description: "A perfect blend of pungent black salt and spicy black pepper for seasoning snacks and salads.",
         features: ["Authentic taste", "Export quality packaging", "No artificial colors", "Fine ground"],
-        images: [blackSaltPaper]
+        images: [blackSaltPowder]
     },
     {
         id: "SPICE002",
