@@ -448,7 +448,7 @@ const products = [
         category: "Spices",
         subcategory: "Veg",
         title: "Black Salt Powder",
-        description: "A perfect blend of pungent black salt and spicy black pepper for seasoning snacks and salads.",
+        description: "A perfect blend of pungent black salt, ideal for seasoning snacks and salads.",
         features: ["Authentic taste", "Export quality packaging", "No artificial colors", "Fine ground"],
         images: [blackSaltPowder]
     },

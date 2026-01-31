@@ -1,6 +1,8 @@
 {
     "name": "NS INC Exports",
     "short_name": "NS INC",
+    "description": "NS INC Exports - Quality Kitchenware and Accessories Export",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
